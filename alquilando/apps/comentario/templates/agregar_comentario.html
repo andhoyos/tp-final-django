@@ -1,0 +1,28 @@
+{% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Agregar Comentario</title>
+  </head>
+  <body>
+    <div class="container mt-3 w-50">
+      <h2>Agregar Comentario</h2>
+
+      <form method="post">
+        {% csrf_token %} {% bootstrap_form form %}
+        <button
+          type="submit"
+          value="Agregar Comentario"
+          class="btn btn-success"
+        >
+          Enviar
+        </button>
+        <a
+          href="{% url 'detalle_publicacion' pk=publicacion.pk %}"
+          class="btn btn-secondary"
+          >Volver a la Publicación</a
+        >
+      </form>
+    </div>
+  </body>
+</html>

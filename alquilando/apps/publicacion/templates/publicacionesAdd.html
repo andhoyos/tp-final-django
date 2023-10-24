@@ -1,0 +1,19 @@
+{% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Crear Publicación</title>
+  </head>
+  <body>
+    <div class="container mt-3 w-50">
+      <h1>Nueva Publicación</h1>
+      <form method="post">
+        {% csrf_token %} {% bootstrap_form form %}
+        <button type="submit" class="btn btn-primary">Crear Publicación</button>
+        <a href="{% url 'listar_publicaciones' %}" class="btn btn-secondary"
+          >Cancelar
+        </a>
+      </form>
+    </div>
+  </body>
+</html>

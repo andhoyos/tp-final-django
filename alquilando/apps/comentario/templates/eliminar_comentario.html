@@ -1,0 +1,25 @@
+{% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Eliminar Comentario</title>
+  </head>
+  <body>
+    <div class="text-center m-5 border border-secondary rounded-3 p-5">
+      <h1>Eliminar Comentario</h1>
+
+      <p>¿Estás seguro de que deseas eliminar este comentario?</p>
+      <p><strong>{{ comentario.texto }}</strong></p>
+
+      <form method="post">
+        {% csrf_token %}{% bootstrap_form form %}
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a
+          href="{% url 'detalle_publicacion' pk=comentario.publicacion.pk  %}"
+          class="btn btn-secondary"
+          >Cancelar
+        </a>
+      </form>
+    </div>
+  </body>
+</html>

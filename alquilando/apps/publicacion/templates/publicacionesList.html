@@ -1,0 +1,109 @@
+{% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Listar Publicaciones</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="dropdown float-end m-3">
+        <button
+          class="btn btn-light dropdown-toggle"
+          type="button"
+          id="dropdownMenu2"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          {{user}}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <li>
+            <a
+              class="dropdown-item"
+              type="button"
+              href="{% url 'crear_publicacion' %}"
+              >Nueva Publicacion</a
+            >
+          </li>
+          <li>
+            <a
+              class="dropdown-item"
+              type="button"
+              href="{% url 'editar_perfil' %}"
+              >Editar perfil</a
+            >
+          </li>
+          <li>
+            <a
+              class="dropdown-item"
+              type="button"
+              href="{% url 'eliminar_propietario' %}"
+              >Eliminar Cuenta</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item" type="button" href="{% url 'logout' %}"
+              >Cerrar sesión</a
+            >
+          </li>
+        </ul>
+      </div>
+      <h1>Listado de Publicaciones</h1>
+      {% if messages %} {% for message in messages %}
+      <div
+        class="alert {{ message.tags }} alert-dismissible fade show"
+        role="alert"
+      >
+        {{ message }}
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+      {% endfor %} {% endif %}
+      <br />
+
+      {% if tiene_publicaciones %} {% for publicacion in publicaciones %}
+      <div class="card">
+        <div class="card-header">
+          <strong>Título:</strong> {{ publicacion.titulo }}<br />
+        </div>
+        <div class="card-body">
+          <strong>Descripción:</strong> {{ publicacion.descripcion }}<br />
+          <strong>Precio:</strong> {{ publicacion.precio }}<br />
+          <strong>Ubicación:</strong> {{ publicacion.ubicacion }}<br />
+          <strong>Estado:</strong> {{ publicacion.get_estado_display }}<br />
+        </div>
+        <div class="card-footer">
+          <strong>Publicación:</strong> {{ publicacion.fecha_publicacion }}<br />
+          {% if request.user == publicacion.propietario.user %}
+
+          <a
+            href="{% url 'editar_publicacion' publicacion.id %}"
+            class="btn btn-primary"
+            >Editar</a
+          >
+
+          <a
+            href="{% url 'eliminar_publicacion' publicacion.id %}"
+            class="btn btn-danger"
+            >Eliminar</a
+          >
+
+          {% endif %}
+        </div>
+      </div>
+      <br />
+      {% endfor %} {% else %}
+      <p>
+        No tienes publicaciones. ¿Deseas
+        <a href="{% url 'crear_publicacion' %} " class="btn btn-secondary"
+          >publicar una?</a
+        >
+      </p>
+      {% endif %}
+    </div>
+  </body>
+</html>

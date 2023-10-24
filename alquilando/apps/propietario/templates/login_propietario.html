@@ -1,0 +1,31 @@
+{% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Propietario</title>
+  </head>
+  <body>
+    <div class="container mt-3 w-50">
+      {% if messages %} {% for message in messages %}
+      <div
+        class="alert {{ message.tags }} alert-dismissible fade show"
+        role="alert"
+      >
+        {{ message }}
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+      {% endfor %} {% endif %}
+      <h2>Login de Propietario</h2>
+      <form method="post">
+        <div class="mb-3 mt-3">{% csrf_token %} {% bootstrap_form form %}</div>
+        <button type="submit" class="btn btn-primary">Ingresar</button>
+      </form>
+      <a href="{% url 'registro_propietario' %}">Registrarse</a>
+    </div>
+  </body>
+</html>

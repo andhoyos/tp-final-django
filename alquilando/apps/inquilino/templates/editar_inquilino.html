@@ -1,0 +1,16 @@
+{% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <div class="container mt-3 w-50">
+      <h2>{{ title }}</h2>
+      <form method="post" class="was-validated">
+        <div>{% csrf_token %} {% bootstrap_form form %}</div>
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+      </form>
+    </div>
+  </body>
+</html>

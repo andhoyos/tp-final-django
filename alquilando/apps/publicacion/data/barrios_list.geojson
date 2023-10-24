@@ -1,0 +1,450 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-ide",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2023-09-20T00:47:01Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/479744086",
+        "name": "Barrio Chino",
+        "place": "neighbourhood",
+        "wikidata": "Q2328190",
+        "wikimedia_commons": "Category:Chinatown, Buenos Aires",
+        "wikipedia": "es:Barrio chino (Buenos Aires)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4503637,
+          -34.5572334
+        ]
+      },
+      "id": "node/479744086"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1310853712",
+        "name": "Las Cañitas",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4323788,
+          -34.5706184
+        ]
+      },
+      "id": "node/1310853712"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1620577930",
+        "alt_name": "Conjunto Urbano Lugano I y II",
+        "name": "Barrio Savio",
+        "official_name": "Barrio General de División Manuel Nicolás Savio",
+        "place": "neighbourhood",
+        "wikidata": "Q5720466",
+        "wikipedia": "es:Barrio General de División Manuel Nicolás Savio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4628282,
+          -34.6853468
+        ]
+      },
+      "id": "node/1620577930"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2154318976",
+        "name": "Barrio Rivadavia I",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4413755,
+          -34.6456982
+        ]
+      },
+      "id": "node/2154318976"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2425303892",
+        "description": "barrio no oficial",
+        "name": "Abasto",
+        "place": "neighbourhood",
+        "wikidata": "Q16488122",
+        "wikipedia": "es:Abasto (Buenos Aires)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4125926,
+          -34.6037283
+        ]
+      },
+      "id": "node/2425303892"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2425306209",
+        "name": "Bajo Flores",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4489393,
+          -34.6498554
+        ]
+      },
+      "id": "node/2425306209"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2425310210",
+        "description": "barrio no oficial",
+        "name": "Once",
+        "place": "neighbourhood",
+        "wikidata": "Q6050750",
+        "wikipedia": "es:Once (Buenos Aires)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4057436,
+          -34.6083636
+        ]
+      },
+      "id": "node/2425310210"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2667485376",
+        "name": "Villa 21 -24 / Zavaleta",
+        "place": "neighbourhood",
+        "wikidata": "Q6161999",
+        "wikipedia": "es:Villa 21-24"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4001103,
+          -34.654715
+        ]
+      },
+      "id": "node/2667485376"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3023753678",
+        "alt_name": "Barrio Sarmiento",
+        "is_in:city": "Ciudad Atónoma de Buenos Aires",
+        "is_in:country": "Argentina",
+        "name": "Parque Cornelio Saavedra",
+        "official_name": "Barrio Parque Cornelio Saavedra",
+        "old_name": "Barrio Perón",
+        "place": "neighbourhood",
+        "wikidata": "Q5720820",
+        "wikimedia_commons": "Category:Barrio Residencial Cornelio Saavedra",
+        "wikipedia": "es:Barrio Residencial Cornelio Saavedra (Buenos Aires)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5022821,
+          -34.5648018
+        ]
+      },
+      "id": "node/3023753678"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3049625933",
+        "alt_name": "Barrio Parque General Belgrano",
+        "name": "Barrio River",
+        "place": "neighbourhood",
+        "wikidata": "Q5720825",
+        "wikipedia": "es:Barrio River"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.450515,
+          -34.5492846
+        ]
+      },
+      "id": "node/3049625933"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3520887607",
+        "name": "Bajo Belgrano",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4444564,
+          -34.5538875
+        ]
+      },
+      "id": "node/3520887607"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3520890188",
+        "name": "Barrio Albarellos",
+        "place": "neighbourhood",
+        "wikidata": "Q5720193",
+        "wikipedia": "es:Barrio Albarellos"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.5090361,
+          -34.5762641
+        ]
+      },
+      "id": "node/3520890188"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4308292130",
+        "name": "Palermo Soho",
+        "place": "neighbourhood",
+        "wikidata": "Q2886949",
+        "wikipedia": "es:Palermo Soho"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.428178,
+          -34.5870582
+        ]
+      },
+      "id": "node/4308292130"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4890418698",
+        "name": "La Carbonilla",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4703493,
+          -34.5986238
+        ]
+      },
+      "id": "node/4890418698"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4936051999",
+        "alt_name": "Palermo Chico",
+        "is_in:city": "Buenos Aires",
+        "name": "Barrio Parque",
+        "place": "neighbourhood",
+        "wikidata": "Q6058869",
+        "wikipedia": "es:Palermo Chico"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4009058,
+          -34.5778295
+        ]
+      },
+      "id": "node/4936051999"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4936147321",
+        "name": "Belgrano R",
+        "place": "neighbourhood",
+        "wikidata": "Q5725073",
+        "wikipedia": "es:Belgrano R"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4668798,
+          -34.5701872
+        ]
+      },
+      "id": "node/4936147321"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4973904314",
+        "name": "La Isla",
+        "place": "neighbourhood",
+        "wikipedia": "es:La Isla (Buenos Aires)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3965024,
+          -34.5852566
+        ]
+      },
+      "id": "node/4973904314"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5849865702",
+        "name": "Palermo Norte",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4080373,
+          -34.5810889
+        ]
+      },
+      "id": "node/5849865702"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5849865703",
+        "name": "Palermo Botánico",
+        "place": "neighbourhood",
+        "wikidata": "Q6058865",
+        "wikipedia": "es:Palermo Botánico"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4139596,
+          -34.5809388
+        ]
+      },
+      "id": "node/5849865703"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5849865704",
+        "name": "Palermo Pacífico",
+        "place": "neighbourhood",
+        "wikidata": "Q11697296",
+        "wikipedia": "es:Pacífico (Buenos Aires)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4226714,
+          -34.5745697
+        ]
+      },
+      "id": "node/5849865704"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5849865705",
+        "name": "Alto Palermo",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4132086,
+          -34.5866184
+        ]
+      },
+      "id": "node/5849865705"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6099747372",
+        "addr:city": "Buenos Aires",
+        "name": "La Containera",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3904654,
+          -34.579199
+        ]
+      },
+      "id": "node/6099747372"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7317613501",
+        "name": "Barrio YPF",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.3814657,
+          -34.580845
+        ]
+      },
+      "id": "node/7317613501"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8633510869",
+        "name": "Barrio Alvear",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4839341,
+          -34.6434519
+        ]
+      },
+      "id": "node/8633510869"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10563587863",
+        "name": "Palermo Hollywood",
+        "place": "neighbourhood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -58.4344985,
+          -34.5816985
+        ]
+      },
+      "id": "node/10563587863"
+    }
+  ]
+}

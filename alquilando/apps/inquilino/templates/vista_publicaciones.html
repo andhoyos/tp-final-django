@@ -1,0 +1,90 @@
+{% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Listar Publicaciones</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="dropdown float-end m-3">
+        <button
+          class="btn btn-light dropdown-toggle"
+          type="button"
+          id="dropdownMenu2"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          {{user}}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <li>
+            <a
+              class="dropdown-item"
+              type="button"
+              href="{% url 'editar_inquilino' %}"
+              >Editar perfil</a
+            >
+          </li>
+          <li>
+            <a
+              class="dropdown-item"
+              type="button"
+              href="{% url 'eliminar_inquilino' %}"
+              >Eliminar Cuenta</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item" type="button" href="{% url 'logout' %}"
+              >Cerrar sesión</a
+            >
+          </li>
+        </ul>
+      </div>
+      <h1>Listado de Publicaciones</h1>
+
+      <div class="dropdown">
+        <button
+          type="button"
+          class="btn btn-primary dropdown-toggle"
+          data-bs-toggle="dropdown"
+        >
+          Ordenar por:
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="?ordenar_por=fecha" class="dropdown-item">Fecha</a></li>
+          <li>
+            <a href="?ordenar_por=precio" class="dropdown-item">Precio</a>
+          </li>
+        </ul>
+      </div>
+
+      <br />
+
+      {% if tiene_publicaciones %} {% for publicacion in publicaciones %}
+      <div class="card">
+        <div class="card-header">
+          <strong>Título:</strong> {{ publicacion.titulo }}<br />
+        </div>
+        <div class="card-body">
+          <strong>Descripción:</strong> {{ publicacion.descripcion }}<br />
+          <strong>Precio:</strong> {{ publicacion.precio }}<br />
+          <strong>Ubicación:</strong> {{ publicacion.ubicacion }}<br />
+          <strong>Estado:</strong> {{ publicacion.get_estado_display }}<br />
+          <strong>Publicacion:</strong> {{ publicacion.fecha_publicacion }}<br />
+        </div>
+        <div class="card-footer">
+          <strong>Propietario:</strong> {{ publicacion.propietario }}<br />
+          <a
+            href="{% url 'detalle_publicacion' publicacion.pk %}"
+            class="btn btn-secondary"
+            >Ver Detalle</a
+          >
+        </div>
+      </div>
+      <br />
+      {% endfor %} {% else %}
+      <p>No hay publicaciones disponibles.</p>
+      {% endif %}
+    </div>
+  </body>
+</html>

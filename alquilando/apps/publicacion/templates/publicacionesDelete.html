@@ -1,0 +1,21 @@
+{% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Eliminar Publicación</title>
+  </head>
+  <body>
+    <div class="text-center m-5 border border-secondary rounded-3 p-5">
+      <h1>Eliminar Publicación</h1>
+      <p>¿Estás seguro de que quieres eliminar esta publicación?</p>
+
+      <form method="post">
+        {% csrf_token %}{% bootstrap_form form %}
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a href="{% url 'listar_publicaciones' %}" class="btn btn-secondary"
+          >Cancelar
+        </a>
+      </form>
+    </div>
+  </body>
+</html>

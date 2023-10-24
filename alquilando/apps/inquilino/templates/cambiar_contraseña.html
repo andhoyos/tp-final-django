@@ -1,0 +1,14 @@
+{% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cambiar Contraseña</title>
+  </head>
+  <body>
+    <h1>Cambiar Contraseña</h1>
+    <form method="post">
+      {% csrf_token %} {% bootstrap_form form %}
+      <button type="submit">Cambiar Contraseña</button>
+    </form>
+  </body>
+</html>
