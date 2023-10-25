@@ -39,11 +39,10 @@ class RegistroView(TemplateView):
                 password=form.cleaned_data["password"],
             )
 
-            # Establece otros datos en el usuario
             user.first_name = form.cleaned_data["nombre"]
             user.last_name = form.cleaned_data["apellido"]
             user.email = form.cleaned_data["email"]
-            user.save()  # Ahora guarda el usuario con todos los datos
+            user.save()
 
             # Crear un objeto propietario asociado al usuario
             Propietario.objects.create(
@@ -126,5 +125,4 @@ class EliminarPerfilView(DeleteView):
         return self.request.user.propietario
 
     def get_success_url(self):
-        # Redirige a donde desees después de eliminar el perfil
         return reverse_lazy("registro_propietario")

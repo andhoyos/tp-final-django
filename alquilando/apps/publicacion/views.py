@@ -17,7 +17,7 @@ class ListarPublicacionesView(TemplateView):
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            # Si el usuario es un propietario, mostrar sus publicaciones
+            # Si el usuario es un propietario, muestra sus publicaciones
             try:
                 propietario = Propietario.objects.get(user=request.user)
                 publicaciones = Publicacion.objects.filter(propietario=propietario)
@@ -48,7 +48,7 @@ class ViewPublicacionesView(TemplateView):
     def get(self, request, *args, **kwargs):
         orden = request.GET.get("ordenar_por", None)
         if request.user.is_authenticated:
-            # Si el usuario es un inquilino, mostrar todas las publicaciones
+            # Si el usuario es un inquilino, muestra todas las publicaciones
             try:
                 inquilino = Inquilino.objects.get(user=request.user)
                 if orden == "fecha":
@@ -129,7 +129,7 @@ class EditarPublicacionView(UpdateView):
     success_url = reverse_lazy("listar_publicaciones")
 
     def get(self, request, *args, **kwargs):
-        # Asegúra que el usuario es el propietario de la publicación
+        # verifica que el usuario es el propietario de la publicación
         publicacion = self.get_object()
         propietario = Propietario.objects.get(user=request.user)
         if publicacion.propietario == propietario:
@@ -145,7 +145,7 @@ class EliminarPublicacionView(DeleteView):
     success_url = reverse_lazy("listar_publicaciones")
 
     def get(self, request, *args, **kwargs):
-        # Asegúra que el usuario es el propietario de la publicación
+        # verifica que el usuario es el propietario de la publicación
         publicacion = self.get_object()
         propietario = Propietario.objects.get(user=request.user)
         if publicacion.propietario == propietario:

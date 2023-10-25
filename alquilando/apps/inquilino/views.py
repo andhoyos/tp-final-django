@@ -44,7 +44,6 @@ class RegistroView(TemplateView):
                 password=form.cleaned_data["password"],
             )
 
-            # Establece otros datos en el usuario
             user.first_name = form.cleaned_data["nombre"]
             user.last_name = form.cleaned_data["apellido"]
             user.email = form.cleaned_data["email"]
@@ -134,7 +133,6 @@ class EliminarPerfilView(DeleteView):
         return self.request.user.inquilino
 
     def get_success_url(self):
-        # Redirige a donde desees después de eliminar el perfil
         return reverse_lazy("registro_inquilino")
 
 
