@@ -1,6 +1,16 @@
 from django import forms
 from apps.inquilino.models import Inquilino
 
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from .models import Inquilino
+
+
+class InquilinoAdminForm(UserCreationForm):
+    class Meta:
+        model = Inquilino
+        fields = "__all__"
+
 
 class RegistroInquilinoForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)

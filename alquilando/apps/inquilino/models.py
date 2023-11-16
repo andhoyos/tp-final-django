@@ -10,9 +10,14 @@ class Inquilino(AbstractUser):
     # Relación con el usuario
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    groups = models.ManyToManyField("auth.Group", related_name="inquilino_groups")
+    groups = models.ManyToManyField(
+        "auth.Group", related_name="inquilino_groups", null=True, blank=True
+    )
     user_permissions = models.ManyToManyField(
-        "auth.Permission", related_name="inquilino_user_permissions"
+        "auth.Permission",
+        related_name="inquilino_user_permissions",
+        null=True,
+        blank=True,
     )
 
     def __str__(self):

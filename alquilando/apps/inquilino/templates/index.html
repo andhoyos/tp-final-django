@@ -1,37 +1,34 @@
-{% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Página de Inicio</title>
-  </head>
-  <body>
-    <div class="container mt-5 align-middle">
-      <div class="d-flex p-3 justify-content-center gap-5 align-items-center">
-        <h1>Bienvenido a nuestra plataforma de alquiler</h1>
-        <div class="card col-sm-6 p-3" style="width: 320px">
-          <h2>Inquilinos</h2>
-          <p>Accede si eres un inquilino</p>
-          <a href="{% url 'login_inquilino' %}" class="btn btn-dark mb-3"
-            >Iniciar Sesión</a
-          >
-          <span
-            >¿No tiene cuenta?
-            <a href="{% url 'registro_inquilino' %}">Registrarse</a></span
-          >
-        </div>
+{% extends 'base.html' %} {% block title %}Página de Inicio{% endblock %}
+{%block content %}
 
-        <div class="card col-sm-6 p-3" style="width: 320px">
-          <h2>Propietarios</h2>
-          <p>Accede si eres un propietario</p>
-          <a href="{% url 'login_propietario' %}" class="btn btn-dark mb-3"
-            >Iniciar Sesión</a
-          >
-          <span>
-            ¿No tiene cuenta?
-            <a href="{% url 'registro_propietario' %}">Registrarse</a>
-          </span>
-        </div>
-      </div>
+<div class="content_index">
+  <h1>Bienvenido a nuestra plataforma de alquiler</h1>
+
+  <div class="form_main">
+    <p class="heading">Inquilinos</p>
+
+    <p>Accede si eres un inquilino</p>
+    <br />
+
+    <a href="{% url 'login_inquilino' %}" class="button"> Ir a Login </a>
+
+    <div class="signupContainer">
+      <p>Don't have any account?</p>
+      <a href="{% url 'registro_inquilino' %}">Sign up</a>
     </div>
-  </body>
-</html>
+  </div>
+
+  <div class="form_main">
+    <p class="heading">Propietarios</p>
+
+    <p>Accede si eres un propietario</p>
+    <br />
+
+    <a href="{% url 'login_propietario' %}" class="button"> Ir a Login </a>
+    <div class="signupContainer">
+      <p>Don't have any account?</p>
+      <a href="{% url 'registro_propietario' %}">Sign up</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

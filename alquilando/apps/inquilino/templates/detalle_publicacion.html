@@ -1,39 +1,59 @@
-{% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
     <title>Detalles de la Publicación</title>
+    <link rel="stylesheet" href="{% static 'css/alert.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/publicaciones.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=League+Spartan:wght@500;600;700&family=Poppins:wght@700&family=Roboto:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
-    <div class="container">
+    <div class="container-detalles">
       <h1>Detalles de la Publicación</h1>
-      <div class="card p-3">
-        <div class="card-header">
-          <h3><strong>Título:</strong> {{ publicacion.titulo }}</h3>
+
+      <div class="card card-detalle">
+        <div class="header">
+          <h3>{{ publicacion.titulo }}</h3>
         </div>
-        <p><strong>Descripción:</strong> {{ publicacion.descripcion }}</p>
-        <p><strong>Precio:</strong> ${{ publicacion.precio }}</p>
-        <p><strong>Ubicación:</strong> {{ publicacion.ubicacion }}</p>
-        <p><strong>Estado:</strong> {{ publicacion.get_estado_display }}</p>
-        <p><strong>Publicacion:</strong> {{ publicacion.fecha_publicacion }}</p>
-        <p><strong>Propietario:</strong> {{ publicacion.propietario }}</p>
-        <p><strong>Email:</strong> {{ publicacion.propietario.email }}</p>
-      </div>
-      <hr />
-      <div>
-        <h2>Comentarios:</h2>
-        {% if messages %} {% for message in messages %}
-        <div
-          class="alert {{ message.tags }} alert-dismissible fade show"
-          role="alert"
-        >
-          {{ message }}
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-          ></button>
+        <div class="progress-line"></div>
+        <div class="info">
+          <div class="info-border">
+            <p><strong>Descripción:</strong> {{ publicacion.descripcion }}</p>
+            <p><strong>Precio:</strong> ${{ publicacion.precio }}</p>
+            <p><strong>Ubicación:</strong> {{ publicacion.ubicacion }}</p>
+            <p><strong>Estado:</strong> {{ publicacion.get_estado_display }}</p>
+            <p>
+              <strong>Publicacion:</strong> {{ publicacion.fecha_publicacion }}
+            </p>
+            <p><strong>Propietario:</strong> {{ publicacion.propietario }}</p>
+            <p><strong>Email:</strong> {{ publicacion.propietario.email }}</p>
+          </div>
+        </div>
+        <div class="progress-line"></div>
+        <div class="content-comentarios">
+          <h2>Comentarios:</h2>
+          {% if messages %} {% for message in messages %}
+          <div
+            class="alert {{ message.tags }} alert-dismissible fade show"
+            role="alert"
+          >
+            {{ message }}
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+            ></button>
+          </div>
         </div>
         {% endfor %} {% endif %}
         <ul>
@@ -44,16 +64,20 @@
             <strong>Fecha de Creación:</strong> {{ comentario.fecha_creacion }}
             {% if request.user == comentario.autor %}
             <!-- Agregar enlace para editar comentario -->
-            <a
-              href="{% url 'editar_comentario' pk=comentario.pk %}"
-              class="btn btn-warning"
-              >Editar</a
-            >
-            <a
-              href="{% url 'eliminar_comentario' pk=comentario.pk %}"
-              class="btn btn-danger"
-              >Eliminar</a
-            >
+            <div class="content-action">
+              <a
+                href="{% url 'editar_comentario' pk=comentario.pk %}"
+                class="comentario-button"
+                >Editar</a
+              >
+
+              <a
+                href="{% url 'eliminar_comentario' pk=comentario.pk %}"
+                class="comentario-button back"
+                >Eliminar</a
+              >
+            </div>
+
             {% endif %}
           </li>
           <br />
@@ -62,15 +86,15 @@
 
         <a
           href="{% url 'agregar_comentario' pk=publicacion.pk %}"
-          class="btn btn-primary"
+          class="comentario-button"
           >Agregar Comentario</a
         >
-        <a href="{% url 'publicaciones_view'  %}" class="btn btn-secondary"
+        <a href="{% url 'publicaciones_view'  %}" class="comentario-button back"
           >Volver al Listado</a
         >
-
-        <hr />
       </div>
+
+      <hr />
     </div>
   </body>
 </html>

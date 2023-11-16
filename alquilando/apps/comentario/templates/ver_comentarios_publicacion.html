@@ -1,0 +1,44 @@
+{%load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Comentarios de la Publicación</title>
+    <link rel="stylesheet" href="{% static 'css/publicaciones.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=League+Spartan:wght@500;600;700&family=Poppins:wght@700&family=Roboto:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="contenedor-comentarios">
+      <h2>Comentarios de la Publicación: {{ publicacion.titulo }}</h2>
+
+      <div>
+        <ul>
+          {% for comentario in comentarios %}
+          <li>
+            <strong>Autor:</strong> {{ comentario.autor.username }}<br />
+            <strong>Contenido:</strong> {{ comentario.contenido }}<br />
+            <strong>Fecha de Creación:</strong> {{ comentario.fecha_creacion }}
+          </li>
+          <hr />
+          <br />
+          {% endfor %}
+        </ul>
+        <ul>
+          <a
+            href="{% url 'listar_publicaciones'  %}"
+            class="comentario-button back"
+            >Volver al Listado</a
+          >
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

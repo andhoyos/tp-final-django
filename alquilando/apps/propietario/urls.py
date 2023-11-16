@@ -1,7 +1,7 @@
 from django.urls import path
 from apps.propietario import views
 from django.contrib.auth import views as auth_views
-from apps.publicacion.views import ListarPublicacionesView, CrearPublicacionView
+from apps.publicacion.views import ListarPublicacionesView
 
 urlpatterns = [
     path(
@@ -26,10 +26,5 @@ urlpatterns = [
         "listar_publicaciones/",
         ListarPublicacionesView.as_view(),
         name="listar_publicaciones",
-    ),
-    path(
-        "crear_publicacione/",
-        CrearPublicacionView.as_view(),
-        name="crear_publicacione",
     ),
 ]

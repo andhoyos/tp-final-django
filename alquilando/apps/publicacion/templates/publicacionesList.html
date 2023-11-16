@@ -1,109 +1,106 @@
-{% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
     <title>Listar Publicaciones</title>
+    <link rel="stylesheet" href="{% static 'css/publicaciones.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=League+Spartan:wght@500;600;700&family=Poppins:wght@700&family=Roboto:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
-    <div class="container">
-      <div class="dropdown float-end m-3">
-        <button
-          class="btn btn-light dropdown-toggle"
-          type="button"
-          id="dropdownMenu2"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          {{user}}
+    <div class="content">
+      <div class="dropdown" id="dropdownRight">
+        <button onclick="toggleDropdown('dropdown1')" class="dropbtn">
+          {{user}} <i class="fa fa-sort-desc"></i>
         </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <li>
+        <div id="dropdown1" class="dropdown-content">
+          <div class="dropdown-menu">
             <a
               class="dropdown-item"
               type="button"
               href="{% url 'crear_publicacion' %}"
               >Nueva Publicacion</a
             >
-          </li>
-          <li>
             <a
               class="dropdown-item"
               type="button"
               href="{% url 'editar_perfil' %}"
               >Editar perfil</a
             >
-          </li>
-          <li>
             <a
               class="dropdown-item"
               type="button"
               href="{% url 'eliminar_propietario' %}"
               >Eliminar Cuenta</a
             >
-          </li>
-          <li>
             <a class="dropdown-item" type="button" href="{% url 'logout' %}"
               >Cerrar sesión</a
             >
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
+
       <h1>Listado de Publicaciones</h1>
-      {% if messages %} {% for message in messages %}
-      <div
-        class="alert {{ message.tags }} alert-dismissible fade show"
-        role="alert"
-      >
-        {{ message }}
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="alert"
-          aria-label="Close"
-        ></button>
-      </div>
-      {% endfor %} {% endif %}
-      <br />
-
+    </div>
+    <br />
+    <div class="flex-container">
       {% if tiene_publicaciones %} {% for publicacion in publicaciones %}
+
       <div class="card">
-        <div class="card-header">
-          <strong>Título:</strong> {{ publicacion.titulo }}<br />
-        </div>
-        <div class="card-body">
-          <strong>Descripción:</strong> {{ publicacion.descripcion }}<br />
-          <strong>Precio:</strong> {{ publicacion.precio }}<br />
-          <strong>Ubicación:</strong> {{ publicacion.ubicacion }}<br />
-          <strong>Estado:</strong> {{ publicacion.get_estado_display }}<br />
-        </div>
-        <div class="card-footer">
-          <strong>Publicación:</strong> {{ publicacion.fecha_publicacion }}<br />
-          {% if request.user == publicacion.propietario.user %}
+        <div class="info info-propietario">
+          <div class="info-border">
+            <a><strong>Título:</strong>{{ publicacion.titulo }}</a>
+            <div class="progress-line"></div>
+            <div class="content-detalles">
+              <strong>Descripción:</strong> {{ publicacion.descripcion }}<br />
+              <strong>Precio:</strong> $ {{ publicacion.precio }}<br />
+              <strong>Ubicación:</strong> {{ publicacion.ubicacion }}<br />
+              <strong>Estado:</strong> {{ publicacion.get_estado_display }}<br />
+            </div>
+            <div class="card-footer">
+              <strong>Publicado:</strong> {{ publicacion.fecha_publicacion }}<br />
+            </div>
+            {% if request.user == publicacion.propietario.user %}
+            <div class="content-action">
+              <a
+                href="{% url 'editar_publicacion' publicacion.id %}"
+                class="comentario-button"
+                >Editar</a
+              >
 
-          <a
-            href="{% url 'editar_publicacion' publicacion.id %}"
-            class="btn btn-primary"
-            >Editar</a
-          >
+              <a
+                href="{% url 'eliminar_publicacion' publicacion.id %}"
+                class="comentario-button back"
+                >Eliminar</a
+              >
+            </div>
 
-          <a
-            href="{% url 'eliminar_publicacion' publicacion.id %}"
-            class="btn btn-danger"
-            >Eliminar</a
-          >
-
-          {% endif %}
+            {% endif %} {% if publicacion.comentario_set.count > 0 %}
+            <a
+              class="link-comentarios"
+              href="{% url 'ver_comentarios_publicacion' publicacion.id %}"
+              >Tiene {{ publicacion.comentario_set.count }} comentario(s)</a
+            >
+            {% endif %}
+          </div>
         </div>
       </div>
       <br />
       {% endfor %} {% else %}
       <p>
         No tienes publicaciones. ¿Deseas
-        <a href="{% url 'crear_publicacion' %} " class="btn btn-secondary"
-          >publicar una?</a
-        >
+        <a href="{% url 'crear_publicacion' %} ">publicar una?</a>
       </p>
       {% endif %}
     </div>
+    <script src="{% static 'scripts/script.js' %}"></script>
   </body>
 </html>

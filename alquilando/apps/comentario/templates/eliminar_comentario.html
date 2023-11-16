@@ -1,24 +1,36 @@
-{% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+{%load static %}
 <!DOCTYPE html>
 <html>
   <head>
     <title>Eliminar Comentario</title>
+    <link rel="stylesheet" href="{% static 'css/publicaciones.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=League+Spartan:wght@500;600;700&family=Poppins:wght@700&family=Roboto:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
-    <div class="text-center m-5 border border-secondary rounded-3 p-5">
+    <div class="contenedor-comentarios cont-delete">
       <h1>Eliminar Comentario</h1>
-
       <p>¿Estás seguro de que deseas eliminar este comentario?</p>
-      <p><strong>{{ comentario.texto }}</strong></p>
-
       <form method="post">
-        {% csrf_token %}{% bootstrap_form form %}
-        <button type="submit" class="btn btn-danger">Eliminar</button>
+        {% csrf_token %}
+        <input
+          type="submit"
+          value="Sí, eliminar comentario"
+          class="btn-delete"
+        />
         <a
           href="{% url 'detalle_publicacion' pk=comentario.publicacion.pk  %}"
-          class="btn btn-secondary"
-          >Cancelar
-        </a>
+          class="comentario-button back"
+          >Cancelar</a
+        >
       </form>
     </div>
   </body>

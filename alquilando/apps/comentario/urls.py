@@ -4,6 +4,7 @@ from apps.comentario.views import (
     ComentarioTemplateView,
     EditarComentarioView,
     EliminarComentarioView,
+    VerComentariosPublicacionView,
 )
 
 urlpatterns = [
@@ -21,5 +22,10 @@ urlpatterns = [
         "eliminar_comentario/<int:pk>/",
         EliminarComentarioView.as_view(),
         name="eliminar_comentario",
+    ),
+    path(
+        "ver_comentarios/<int:pk>/",
+        VerComentariosPublicacionView.as_view(),
+        name="ver_comentarios_publicacion",
     ),
 ]

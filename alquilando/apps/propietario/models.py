@@ -10,9 +10,17 @@ class Propietario(AbstractUser):
     # Relación con el usuario
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    groups = models.ManyToManyField("auth.Group", related_name="propietario_groups")
+    groups = models.ManyToManyField(
+        "auth.Group",
+        related_name="propietario_groups",
+        null=True,
+        blank=True,
+    )
     user_permissions = models.ManyToManyField(
-        "auth.Permission", related_name="propietario_user_permissions"
+        "auth.Permission",
+        related_name="propietario_user_permissions",
+        null=True,
+        blank=True,
     )
 
     def __str__(self):

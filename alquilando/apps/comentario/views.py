@@ -28,7 +28,6 @@ class ComentarioTemplateView(TemplateView):
             comentario.publicacion = publicacion
             comentario.autor = request.user
             comentario.save()
-            messages.success(request, "Comentario agregado correctamente.")
             return redirect("detalle_publicacion", pk=pk)
 
         return self.render_to_response({"form": form})
@@ -46,7 +45,6 @@ class EditarComentarioView(UpdateView):
     def get(self, request, *args, **kwargs):
         comentario = self.get_object()
         if comentario.autor == request.user:
-            messages.success(request, "Comentario editado correctamente.")
             return super().get(request, *args, **kwargs)
         else:
             messages.error(request, "No tiene permiso para editar este comentario.")
@@ -68,3 +66,15 @@ class EliminarComentarioView(DeleteView):
         else:
             messages.error(request, "No tiene permiso para eliminar este comentario.")
             return redirect("detalle_publicacion", pk=comentario.publicacion.pk)
+
+
+class VerComentariosPublicacionView(DetailView):
+    model = Publicacion
+    template_name = "ver_comentarios_publicacion.html"
+    context_object_name = "publicacion"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        comentarios = Comentario.objects.filter(publicacion=self.object)
+        context["comentarios"] = comentarios
+        return context

@@ -1,0 +1,297 @@
+/* *{
+  margin: 0 auto;
+  box-sizing: border-box;
+} */
+
+body{
+  font-family: 'Roboto', sans-serif;
+  
+}
+
+.content{
+  margin: auto 5vw;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #3498db;
+  color: white;
+  padding: 8px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width:  -webkit-fill-available;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 10px 12px;
+  text-decoration: none;
+  display: block;
+  list-style: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.show {
+  display: block;
+}
+
+#dropdownRight {
+  float: right;
+}
+
+#dropdownRight #dropdown1{
+  right: 3%;
+  width: max-content;
+}
+
+#dropdownRight button{
+  background: #333333;
+}
+
+.flex-container {
+  display: flex;  
+  justify-content: center;     
+  height: 100%;
+  padding: 15px;
+  gap: 5px;
+  flex-wrap: wrap; 
+
+}
+.card{
+  max-width: 370px;
+}
+
+.card, .card-detalle, card-perfil{
+  min-width: 370px;
+  height: 400px;
+  background: #333333;
+  border-radius: 6px;
+  color: white;
+}
+
+.card-detalle{
+  min-width: 60vw;
+  height: auto
+}
+
+.card-perfil{
+  background: none;
+  color: initial;
+  border: 1px solid #333333;
+  margin: auto;
+}
+
+.card-perfil .comentario-button{
+  left: 5%;
+}
+
+.alert{
+  margin: auto;
+}
+
+.header,
+.info,
+.progress-line
+.bottom {
+  width: 100%;
+}
+
+.header {
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #2E2E2E
+}
+
+.info {
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-propietario{
+  height: 100%;
+}
+
+.content-action{
+  padding: 20px;
+}
+
+.content-action .back{
+  background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-delete{
+  background-color: #dc3545;
+  border-radius: 6px;
+  border: none;
+  color: #fff;
+  padding: 7px 12px;
+  cursor: pointer;
+}
+
+.content-detalles{
+  white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  margin: 10% 0 15% 0;
+}
+.container-detalles{
+  width: 60vw;
+    margin: auto;
+}
+
+.header-button{
+  width: 94%;
+  height: 72%;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  background-color: #333333;
+  color: white;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.header-button:hover {
+  background-color: #3F3F3F;
+}
+
+.header-button svg {
+  width: 20px;
+}
+
+.header-button svg:first-child {
+  position: relative;
+  left: 5px;
+}
+
+.header-button svg:last-child {
+  position: relative;
+  right: 15px;
+}
+
+.header-button a {
+  width: 100%;
+  position: relative;
+  text-align: justify;
+  text-decoration: none;
+  color: #fff;
+}
+
+.header-button svg{
+  float: inline-end;
+}
+
+.info-border {
+  width: 90%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px
+}
+
+.info-border a:nth-child(3) {
+  font-size: 15px;
+}
+
+.info-border a:nth-child(4) {
+  width: 200px;
+  font-size: 13px;
+  position: relative;
+  top: 10px;
+  align-self: center;
+  text-align: center;
+}
+
+.progress-line {
+  height: 4px;
+  border-radius: 666px;
+  background-color: #FF99A4;
+}
+
+.update-button, .comentario-button {
+  width: 120px;
+  height: 35px;
+  position: relative;
+  top: 25px;
+  align-self: center;
+  outline: none;
+  border: none;
+  background-color: #4CC2FF;
+  border-radius: 6px;
+  font-size: 15px;
+  color: white;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.comentario-button{
+  background-color: #8000ff;
+  top: 0;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+
+.back{
+  background: #3F3F3F;
+}
+
+.update-button:hover {
+  background-color: #49B3EA;
+}
+
+.btn-detalles{
+  text-align: center;
+}
+
+.content-comentarios{
+  margin: 2%;
+  padding-bottom: 20px;
+}
+
+.link-comentarios{
+  color: gold;
+    text-decoration: none;
+}
+
+.contenedor-comentarios{
+  width: 60vw;
+  margin: 3% auto;
+  border: 1px solid #3333;
+  border-radius: 25px;
+  padding:2%;
+}
+
+.contenedor-comentarios h2{
+  text-align: center;
+}
+
+.cont-delete{  
+  text-align: center;
+}

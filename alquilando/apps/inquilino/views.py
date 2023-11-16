@@ -136,6 +136,3 @@ class EliminarPerfilView(DeleteView):
         return reverse_lazy("registro_inquilino")
 
 
-class CambiarContraseñaView(PasswordChangeView):
-    template_name = "cambiar_contraseña.html"
-    success_url = reverse_lazy("detalle_perfil")

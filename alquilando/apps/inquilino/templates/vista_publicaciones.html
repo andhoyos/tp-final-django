@@ -1,90 +1,107 @@
-{% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
     <title>Listar Publicaciones</title>
+    <link rel="stylesheet" href="{% static 'css/publicaciones.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=League+Spartan:wght@500;600;700&family=Poppins:wght@700&family=Roboto:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
-    <div class="container">
-      <div class="dropdown float-end m-3">
-        <button
-          class="btn btn-light dropdown-toggle"
-          type="button"
-          id="dropdownMenu2"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          {{user}}
+    <div class="content">
+      <div class="dropdown" id="dropdownRight">
+        <button onclick="toggleDropdown('dropdown1')" class="dropbtn">
+          {{user}} <i class="fa fa-sort-desc"></i>
         </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <li>
+        <div id="dropdown1" class="dropdown-content">
+          <div class="dropdown-menu">
             <a
               class="dropdown-item"
               type="button"
               href="{% url 'editar_inquilino' %}"
               >Editar perfil</a
             >
-          </li>
-          <li>
             <a
               class="dropdown-item"
               type="button"
               href="{% url 'eliminar_inquilino' %}"
               >Eliminar Cuenta</a
             >
-          </li>
-          <li>
             <a class="dropdown-item" type="button" href="{% url 'logout' %}"
               >Cerrar sesión</a
             >
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
+
       <h1>Listado de Publicaciones</h1>
 
       <div class="dropdown">
-        <button
-          type="button"
-          class="btn btn-primary dropdown-toggle"
-          data-bs-toggle="dropdown"
-        >
+        <button onclick="toggleDropdown('dropdown2')" class="dropbtn">
           Ordenar por:
         </button>
-        <ul class="dropdown-menu">
-          <li><a href="?ordenar_por=fecha" class="dropdown-item">Fecha</a></li>
-          <li>
+        <div id="dropdown2" class="dropdown-content">
+          <div class="dropdown-menu">
+            <a href="?ordenar_por=fecha" class="dropdown-item">Fecha</a>
+
             <a href="?ordenar_por=precio" class="dropdown-item">Precio</a>
-          </li>
-        </ul>
-      </div>
-
-      <br />
-
-      {% if tiene_publicaciones %} {% for publicacion in publicaciones %}
-      <div class="card">
-        <div class="card-header">
-          <strong>Título:</strong> {{ publicacion.titulo }}<br />
-        </div>
-        <div class="card-body">
-          <strong>Descripción:</strong> {{ publicacion.descripcion }}<br />
-          <strong>Precio:</strong> {{ publicacion.precio }}<br />
-          <strong>Ubicación:</strong> {{ publicacion.ubicacion }}<br />
-          <strong>Estado:</strong> {{ publicacion.get_estado_display }}<br />
-          <strong>Publicacion:</strong> {{ publicacion.fecha_publicacion }}<br />
-        </div>
-        <div class="card-footer">
-          <strong>Propietario:</strong> {{ publicacion.propietario }}<br />
-          <a
-            href="{% url 'detalle_publicacion' publicacion.pk %}"
-            class="btn btn-secondary"
-            >Ver Detalle</a
-          >
+          </div>
         </div>
       </div>
-      <br />
-      {% endfor %} {% else %}
-      <p>No hay publicaciones disponibles.</p>
-      {% endif %}
     </div>
+    <br />
+    <div class="flex-container">
+      {% if tiene_publicaciones %} {% for publicacion in publicaciones %}
+
+      <div class="card">
+        <div class="header">
+          <button class="header-button">
+            <a href="{% url 'detalle_publicacion' publicacion.pk %}">
+              {{ publicacion.titulo }}
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <g>
+                  <path
+                    d="m9 20c-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l6.3-6.3-6.3-6.3c-.4-.4-.4-1 0-1.4s1-.4 1.4 0l7 7c.4.4.4 1 0 1.4l-7 7c-.2.2-.4.3-.7.3z"
+                    fill="#000000"
+                    style="fill: rgb(255, 255, 255)"
+                  ></path>
+                </g>
+              </svg>
+            </a>
+          </button>
+        </div>
+        <div class="info">
+          <div class="info-border">
+            <a>{{ publicacion.propietario }}</a>
+            <div class="progress-line"></div>
+            <a>${{ publicacion.precio }}</a>
+            <div class="content-detalles">
+              <strong>Descripción:</strong> {{ publicacion.descripcion }}<br />
+              <strong>Ubicación:</strong> {{ publicacion.ubicacion }}<br />
+              <strong>Estado:</strong> {{ publicacion.get_estado_display }}<br />
+              <strong>Publicado:</strong> {{ publicacion.fecha_publicacion }}<br />
+            </div>
+            <a
+              href="{% url 'detalle_publicacion' publicacion.pk %}"
+              class="btn-detalles"
+              ><button class="update-button">Ver detalles</button></a
+            >
+          </div>
+        </div>
+      </div>
+      {% endfor %} {% else %}
+    </div>
+    <br />
+    <p>No hay publicaciones disponibles.</p>
+    {% endif %}
+    <script src="{% static 'scripts/script.js' %}"></script>
   </body>
 </html>

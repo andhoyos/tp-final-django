@@ -27,7 +27,5 @@ urlpatterns = [
         name="eliminar_inquilino",
     ),
     path("logout/", LogoutView.as_view(), name="logout"),
-    path(
-        "cambiar_contraseña/", PasswordChangeView.as_view(), name="cambiar_contraseña"
-    ),
+    
 ]

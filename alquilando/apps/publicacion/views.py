@@ -23,7 +23,7 @@ class ListarPublicacionesView(TemplateView):
                 publicaciones = Publicacion.objects.filter(propietario=propietario)
                 tiene_publicaciones = publicaciones.exists()
             except Propietario.DoesNotExist:
-                messages.info(
+                messages.error(
                     request,
                     "No eres un propietario registrado. Por favor regístrate como propietario.",
                 )
@@ -62,7 +62,7 @@ class ViewPublicacionesView(TemplateView):
 
                 tiene_publicaciones = publicaciones.exists()
             except Inquilino.DoesNotExist:
-                messages.info(
+                messages.error(
                     request,
                     "No eres un inquilino registrado. Por favor regístrate para ver las publicaciones.",
                 )
@@ -133,7 +133,6 @@ class EditarPublicacionView(UpdateView):
         publicacion = self.get_object()
         propietario = Propietario.objects.get(user=request.user)
         if publicacion.propietario == propietario:
-            messages.success(self.request, "Los datos se actualizaron correctamente.")
             return super().get(request, *args, **kwargs)
         else:
             return redirect("listar_publicaciones")
