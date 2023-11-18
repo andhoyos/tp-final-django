@@ -295,3 +295,11 @@ body{
 .cont-delete{  
   text-align: center;
 }
+
+.content-btn-coments{
+  margin-top: 10%;
+}
+
+.content-btn-coments a{
+  padding: 9px 12px;
+}

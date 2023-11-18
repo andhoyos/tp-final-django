@@ -45,7 +45,6 @@ DJANGO_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "bootstrap5",
 ]
 
 INSTALLED_APPS = LOCAL_APPS + DJANGO_APPS

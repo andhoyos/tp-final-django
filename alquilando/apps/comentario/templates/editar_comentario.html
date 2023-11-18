@@ -1,23 +1,40 @@
-{% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
     <title>Editar Comentario</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/publicaciones.css' %}" />
   </head>
   <body>
-    <div class="container mt-3 w-50">
-      <h1>Editar Comentario</h1>
+    <div class="container_registro ">
 
-      <form method="post">
-        {% csrf_token %} {% bootstrap_form form %}
-        <button
+      <form method="post" class="form_main registro">
+        {% csrf_token %}
+        <p class="heading">Editar Comentario</p class="heading">
+        <textarea
+          name="contenido"
+          cols="40"
+          rows="10"
+          class="form-control"
+          placeholder="Contenido"
+          id="{{ form.contenido.id_for_label }}"
+          
+        >{{ form.contenido.value }}</textarea>
+        <span class="content-btn-coments">
+
+          <button
           type="submit"
-          value="Agregar Comentario"
-          class="btn btn-success"
-        >
+          class="comentario-button"
+          >
           Enviar
         </button>
+        
+      </span>
+
       </form>
     </div>
   </body>
 </html>
+
+

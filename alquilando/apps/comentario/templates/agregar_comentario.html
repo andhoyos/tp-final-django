@@ -1,28 +1,43 @@
-{% load bootstrap5 %} {% bootstrap_css %} {% bootstrap_javascript %}
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
     <title>Agregar Comentario</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/publicaciones.css' %}" />
   </head>
   <body>
-    <div class="container mt-3 w-50">
-      <h2>Agregar Comentario</h2>
+    <div class="container_registro ">
 
-      <form method="post">
-        {% csrf_token %} {% bootstrap_form form %}
-        <button
+      <form method="post" class="form_main registro">
+        {% csrf_token %}
+        <p class="heading">Agregar Comentario</p class="heading">
+        <textarea
+          name="contenido"
+          cols="40"
+          rows="10"
+          class="form-control"
+          placeholder="Contenido"
+          title=""
+          required=""
+          id="id_contenido"
+        ></textarea>
+        <span class="content-btn-coments">
+
+          <button
           type="submit"
-          value="Agregar Comentario"
-          class="btn btn-success"
-        >
+          class="comentario-button"
+          >
           Enviar
         </button>
-        <a
-          href="{% url 'detalle_publicacion' pk=publicacion.pk %}"
-          class="btn btn-secondary"
-          >Volver a la Publicación</a
+        <a href="{% url 'detalle_publicacion' pk=publicacion.pk %}" class="comentario-button back"
+        >Listado de Publicaciones</a
         >
+      </span>
+
       </form>
     </div>
   </body>
 </html>
+
+
