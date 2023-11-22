@@ -32,7 +32,7 @@ class RegistroView(TemplateView):
             username = form.cleaned_data["username"]
             # Verifica si el usuario ya existe
             if User.objects.filter(username=username).exists():
-                messages.info(request, "El nombre de usuario ya está en uso.")
+                messages.error(request, "El nombre de usuario ya está en uso.")
                 return redirect(reverse_lazy("registro_propietario"))
             user = User.objects.create_user(
                 username=form.cleaned_data["username"],
